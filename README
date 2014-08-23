@@ -2,6 +2,8 @@
 ************************** GREAT FREEDOM  ************************
 ******************************************************************
 
+Assets are available under Apache licence, except Lato font
+
 CM-11.0 NEW THEME ENGINE THEME!
 
 This is my contribution to celebrate the new theme engine.
@@ -11,7 +13,21 @@ source code can be used as a template, source code is available here
 
 https://github.com/elelinux/GreatFreedom
 
-To build this theme use eclipse or android-studio
+For those who want the theme Great Freedom with boot animation, I have made 2 versions, 
+Note: just install on newer devices that have at least 512 mb of RAM memory
+
+Great Freedom with boot animation 768x1280
+http://d-h.st/4BY
+
+Great Freedom with boot animation 1080x1920
+http://d-h.st/l7b
+
+Uninstall play store version before installing this
+
+DISCLAIMER: I take no responsibility if your phone does not boot up with the boot animation﻿
+
+To build this theme use eclipse or android-studio, to build from the source
+for a rom for eg. description can be found at the bottom
 
 GreatFreedom is a theme that is stylishly designed with solid colors, 
 I tried to keep it as close to stock CM as possible apart from the icons.
@@ -49,3 +65,23 @@ Made by Esa Laukkanen <ele.linux@gmail.com>
 
 Widget Border Blue Color
 #55acee
+
+# Howto build the theme in console "terminal"
+
+1. Remove the bin folder
+2. Add a Android.mk file that looks like this
+
+LOCAL_PATH:= $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_PACKAGE_NAME := THEME_NAME
+
+LOCAL_AAPT_FLAGS := -c mdpi,hdpi,xhdpi,xxhdpi -x 10
+
+# LOCAL_CERTIFICATE := name_of_releasekey "additional, place your releasekey in /system/build/target/product/security " for Google Play etc.
+
+include $(BUILD_PACKAGE)
+
+3. Use the tradional build commands " make etc.."
